@@ -1,7 +1,6 @@
 # Medical-Image-Segmentation
 # Overview
-Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. This project introduces the use of transformers based computer vision models, such as Segformers, DPT 
-a novel apporach to train high-level semantic sentence embedding models, with a primary focus on enhancing the understanding of the intention within sentences.
+Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art models.This project focuses on implementing transfer learning on pre-trained transformers based computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging. 
 
 ## Motivation
 In intent classification, it is essential to grasp a broader understanding of the underlying meaning in a sentence. However, conventional embedding models tend to focus on specific entity attributes within a sentence, such as certain keywords. To address this limitation, I implemented a data augmentation method to construct a triplet training dataset using the entity attributes and entity relations information extracted from FewRel relation classification dataset. You can access the FewRel dataset here: [FewRel dataset](https://paperswithcode.com/dataset/fewrel)
