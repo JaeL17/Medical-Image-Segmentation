@@ -1,15 +1,14 @@
 # Medical-Image-Segmentation
 # Overview
-Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art models.This project focuses on implementing transfer learning on pre-trained transformers based computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging. 
+Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art models. This project focuses on implementing transfer learning on pre-trained transformers based computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging. 
 
 ## Motivation
-In intent classification, it is essential to grasp a broader understanding of the underlying meaning in a sentence. However, conventional embedding models tend to focus on specific entity attributes within a sentence, such as certain keywords. To address this limitation, I implemented a data augmentation method to construct a triplet training dataset using the entity attributes and entity relations information extracted from FewRel relation classification dataset. You can access the FewRel dataset here: [FewRel dataset](https://paperswithcode.com/dataset/fewrel)
+In 2019, an estimated 5 million people were diagnosed with a cancer of the gastro-intestinal tract worldwide. Of these patients, about half are eligible for radiation therapy, usually delivered over 10-15 minutes a day for 1-6 weeks. Radiation oncologists try to deliver high doses of radiation using X-ray beams pointed to tumors while avoiding the stomach and intestines. With newer technology such as integrated magnetic resonance imaging and linear accelerator systems, also known as MR-Linacs, oncologists are able to visualize the daily position of the tumor and intestines, which can vary day to day. In these scans, radiation oncologists must manually outline the position of the stomach and intestines in order to adjust the direction of the x-ray beams to increase the dose delivery to the tumor and avoid the stomach and intestines. This is a time-consuming and labor intensive process that can prolong treatments from 15 minutes a day to an hour a day, which can be difficult for patients to tolerate—unless deep learning could help automate the segmentation process. A method to segment the stomach and intestines would make treatments much faster and would allow more patients to get more effective treatment. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview)
 
 ## Contents
-1. **Data Parsing**: Code for constructing the triplet training dataset.
-2. **Training**: Code for fine-tuning open-source sentence embedding models on the triplet training dataset.
-3. **Testing**: Code for computing the top-3 accuracy of **MTEB/mtop_intent** dataset using a retrieval task approach based on Annoy index. In this approach, the trainset of MTEB/mtop_intent is indexed, and the testset is used as a search query.
-4. **Visualising Attention**: Code for visualising the attention mechanisms within each layer of the embedding models.
+1. **Data Parsing**: Code for loading training and validation dataset, as well as pre-processing the data.
+2. **Training**: Code for transfer learning open-source models from Hugging Face on the training dataset. This section also includes computing Dice coefficients on validation dataset.
+3. **Visualisation**: Code for displaying sample images and inference resylts of a segmentation model.
 
 ## Running the code
 1. **Data Parsing**
