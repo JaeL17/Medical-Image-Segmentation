@@ -13,7 +13,7 @@ In 2019, an estimated 5 million people were diagnosed with a cancer of the gastr
 
 ## Data Pre-processing and Training Data Augmentation
 During the training phase, the we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
-- Image resizing to 288x288 pixels.
+* Image resizing to 288x288 pixels.
 * Random flipping (both horizontal and vertical).
 * Random adjustments to brightness and contrast.
 * Coarser dropout for regularisation.
