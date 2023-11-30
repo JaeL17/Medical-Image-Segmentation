@@ -39,19 +39,16 @@ tail -f logs/train_upertnet_small.log
 ## Test Results and Performance Comparison
 Despite its significantly smaller parameter size, the high-level semantic model outperforms the base model and other two open-source sentence embedding models, e5-large-v2 (Microsoft) and ember-v1 (current SOTA model for classification task on [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard)).
 
-|Model|Hidden size|Parameters|
-|---|---|---|
-|[base model](https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2)|384|33M|
-|high-level semantic model|384|33M|
-|[e5-Large-v2](https://huggingface.co/embaas/sentence-transformers-e5-large-v2)|1024|335M|
-|[ember-v1](https://huggingface.co/llmrails/ember-v1)|1024|335M|
-
-|Model|Top-1|Top-2|Top-3|
+|Model|Type|Dice coefficient|Parameters|
 |---|---|---|---|
-|[base model](https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2)|0.851|0.918|0.943|
-|high-level semantic model|**0.930**|**0.954**|**0.963**|
-|[e5-Large-v2](https://huggingface.co/embaas/sentence-transformers-e5-large-v2)|0.888|0.940|0.956|
-|[ember-v1](https://huggingface.co/llmrails/ember-v1)|0.902|0.945|**0.963**|
+|[nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512)|SegFormer|0.8813|3.7M|
+|[nvidia/segformer-b4-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b4-finetuned-ade-512-512)|SegFormer|0.9196|64M|
+|[nvidia/segformer-b5-finetuned-ade-640-640](https://huggingface.co/nvidia/segformer-b5-finetuned-ade-640-640)|SegFormer|0.9297|84M|
+|[openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small)|UperNet (ConvNetXt backbone)|0.9459|82M|
+|[openmmlab/upernet-convnext-base](https://huggingface.co/openmmlab/upernet-convnext-base)|UperNet (ConvNetXt backbone)|0.9470|122M|
+|[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
+|[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|94.20|343M|
+
 
 ## Attention Visualisation
 
@@ -63,7 +60,6 @@ The image below illustrates that the base model focuses on specific keywords, su
 
 
 * **High-level sematic model**
-
 In contrast, the high-level semantic model, as shown in the image below, unfolds the content of a sentence by focusing on important predicates like **"forgot"**, **"have"**, **"locked"**, and **"using"**, rather than focusing on entity attributes (keywords) within a sentence.
 
 ![high_level_semantics](https://github.com/JaeL17/high-level-semantics-embedding-model/assets/73643391/5e2cb81c-cbf0-4cc6-94db-fb82562964e7)
