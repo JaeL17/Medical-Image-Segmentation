@@ -53,5 +53,5 @@ In this project, we evaluate different model with varying parameter sizes to com
 |[openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small)|UperNet (ConvNetXt backbone)|0.9459|82M|
 |[openmmlab/upernet-convnext-base](https://huggingface.co/openmmlab/upernet-convnext-base)|UperNet (ConvNetXt backbone)|0.9470|122M|
 |[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
-|[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|94.20|343M|
+|[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
