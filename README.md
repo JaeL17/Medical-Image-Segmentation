@@ -37,7 +37,8 @@ tail -f logs/train_upertnet_small.log
 ```
 
 ## Test Results and Performance Comparison
-Despite its significantly smaller parameter size, the high-level semantic model outperforms the base model and other two open-source sentence embedding models, e5-large-v2 (Microsoft) and ember-v1 (current SOTA model for classification task on [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard)).
+In this project, we compare transformer based model of varying parameter size for semantic segmantation. When training the images are resized to 288X288 pixels and at every epoch, a random rotation between -10 to 10 is or random flipping (horizontal and vertical) as well as random rotation between 0 and 180 is applied to perform data augmentation on the dataset.
+Althrough transfer learning on UperNet large model shows the best dice coefficient, it is interesting to note that even if the number of parameters of UperNet is drastically increased, the performance improvment is not as significant than for SegFormer.
 
 |Model|Type|Dice coefficient|Parameters|
 |---|---|---|---|
@@ -49,17 +50,3 @@ Despite its significantly smaller parameter size, the high-level semantic model 
 |[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|94.20|343M|
 
-
-## Attention Visualisation
-
-- **Base model**
-
-The image below illustrates that the base model focuses on specific keywords, such as **"pin"** and **"card"**.
-   
-![base_head_view](https://github.com/JaeL17/high-level-semantics-embedding-model/assets/73643391/143ac834-ad9a-43d7-b0c2-d3bd15446279)
-
-
-* **High-level sematic model**
-In contrast, the high-level semantic model, as shown in the image below, unfolds the content of a sentence by focusing on important predicates like **"forgot"**, **"have"**, **"locked"**, and **"using"**, rather than focusing on entity attributes (keywords) within a sentence.
-
-![high_level_semantics](https://github.com/JaeL17/high-level-semantics-embedding-model/assets/73643391/5e2cb81c-cbf0-4cc6-94db-fb82562964e7)
