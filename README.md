@@ -20,8 +20,6 @@ During the training phase, the we adopt multiple data augmentation strategies to
 * Random scaling, shifting, and rotation.
 
 ## Running the trainer code
-1. **Training**
-   
 - Shell script
 ```
 bash run_train.sh
