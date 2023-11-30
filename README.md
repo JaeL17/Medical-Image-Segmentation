@@ -6,10 +6,18 @@ Welcome to the repository for Medical Image Segmentation, a crucial task in the 
 In 2019, an estimated 5 million people were diagnosed with a cancer of the gastro-intestinal tract worldwide. Of these patients, about half are eligible for radiation therapy, usually delivered over 10-15 minutes a day for 1-6 weeks. Radiation oncologists try to deliver high doses of radiation using X-ray beams pointed to tumors while avoiding the stomach and intestines. With newer technology such as integrated magnetic resonance imaging and linear accelerator systems, also known as MR-Linacs, oncologists are able to visualize the daily position of the tumor and intestines, which can vary day to day. In these scans, radiation oncologists must manually outline the position of the stomach and intestines in order to adjust the direction of the x-ray beams to increase the dose delivery to the tumor and avoid the stomach and intestines. This is a time-consuming and labor intensive process that can prolong treatments from 15 minutes a day to an hour a day, which can be difficult for patients to tolerate—unless deep learning could help automate the segmentation process. A method to segment the stomach and intestines would make treatments much faster and would allow more patients to get more effective treatment. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview)
 
 ## Contents
-1. **utils.py**: Contains code for loading training and validation dataset, as well as pre-processing the data.
+1. **utils.py**: Contains code for loading training and validation dataset, as well as pre-processing the data and data augmentation on training dataset.
 2. **model.py**: Exlore this file to find code for the segmentation model class used in this project. 
 3. **trainer.py**: Code for transfer learning open-source models from Hugging Face on the training dataset. This section also includes computing Dice coefficients on validation dataset.
 4. **visualisation.ipynb**: Explore this Jupyter Notebook for code related to displaying sample images and inference resylts of the segmentation model.
+
+## Data Pre-processing and Training Data Augmentation
+During the training phase, the we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
+- Image resizing to 288x288 pixels.
+* Random flipping (both horizontal and vertical).
+* Random adjustments to brightness and contrast.
+* Coarser dropout for regularisation.
+* Random scaling, shifting, and rotation.
 
 ## Running the trainer code
 1. **Training**
@@ -37,8 +45,7 @@ tail -f logs/train_upertnet_small.log
 ```
 
 ## Test Results and Performance Comparison
-In this project, we compare transformer based model of varying parameter size for semantic segmantation. When training the images are resized to 288X288 pixels and at every epoch, a random rotation between -10 to 10 is or random flipping (horizontal and vertical) as well as random rotation between 0 and 180 is applied to perform data augmentation on the dataset.
-Althrough transfer learning on UperNet large model shows the best dice coefficient, it is interesting to note that even if the number of parameters of UperNet is drastically increased, the performance improvment is not as significant than for SegFormer.
+In this project, we evaluate different model with varying parameter sizes to compare their performance in semantic segmentation tasks. While UperNet exhibits the best dice coefficient after transfer learning, it's interesting to note that increasing the parameters of UperNet doesn't yield a proportionally significant performance improvement compared to SegFormer
 
 |Model|Type|Dice coefficient|Parameters|
 |---|---|---|---|
