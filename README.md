@@ -30,8 +30,8 @@ CUDA_VISIBLE_DEVICES=2 python trainer.py \
     --lr 2e-4 1>> logs/train_multi_gpus_log.txt &
 ```
 
-```
 * Logging
+```
 tail -f logs/train_multi_gpus_log.txt
 ```
 
