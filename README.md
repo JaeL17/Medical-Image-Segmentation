@@ -27,12 +27,12 @@ CUDA_VISIBLE_DEVICES=2 python trainer.py \
     --optimizer "AdamW"\
     --scheduler_name "MultiStepLR"\
     --epochs 6 \
-    --lr 2e-4 1>> logs/train_multi_gpus_log.txt &
+    --lr 2e-4 >> ./logs/train_upertnet_small.log &
 ```
 
 * Logging
 ```
-tail -f logs/train_multi_gpus_log.txt
+tail -f logs/train_upertnet_small.log
 ```
 
 ## Test Results and Performance Comparison
