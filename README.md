@@ -1,6 +1,6 @@
 # Medical-Image-Segmentation
 # Overview
-Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art models. This project focuses on implementing transfer learning on pre-trained transformers based computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging. 
+Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art models. This project focuses on fine-tuning transformers based pre-trained computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging. 
 
 ## Motivation
 In 2019, an estimated 5 million people were diagnosed with a cancer of the gastro-intestinal tract worldwide. Of these patients, about half are eligible for radiation therapy, usually delivered over 10-15 minutes a day for 1-6 weeks. Radiation oncologists try to deliver high doses of radiation using X-ray beams pointed to tumors while avoiding the stomach and intestines. With newer technology such as integrated magnetic resonance imaging and linear accelerator systems, also known as MR-Linacs, oncologists are able to visualize the daily position of the tumor and intestines, which can vary day to day. In these scans, radiation oncologists must manually outline the position of the stomach and intestines in order to adjust the direction of the x-ray beams to increase the dose delivery to the tumor and avoid the stomach and intestines. This is a time-consuming and labor intensive process that can prolong treatments from 15 minutes a day to an hour a day, which can be difficult for patients to tolerate—unless deep learning could help automate the segmentation process. A method to segment the stomach and intestines would make treatments much faster and would allow more patients to get more effective treatment. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview)
@@ -42,7 +42,7 @@ CUDA_VISIBLE_DEVICES=2 python trainer.py \
 tail -f logs/train_upertnet_small.log
 ```
 
-## Test Results and Performance Comparison
+## Evaluation Results and Performance Comparison
 In this project, we evaluate different model with varying parameter sizes to compare their performance in semantic segmentation tasks. While UperNet exhibits the best dice coefficient after transfer learning, it's interesting to note that increasing the parameters of UperNet doesn't yield a proportionally significant performance improvement compared to SegFormer
 
 |Model|Type|Dice coefficient|Parameters|
@@ -55,3 +55,5 @@ In this project, we evaluate different model with varying parameter sizes to com
 |[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
+## Displaying Results
+![ms_image](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/aaf133e0-7613-423d-9463-a62f79be2629)
