@@ -1,6 +1,6 @@
 # Medical-Image-Segmentation
 ## Overview
-Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision that empowers healthcare professionals with advanced tools for precise disease diagnosis and optimisation of treatment strategies. This project focuses on semantic segmentation in medical imaging, automating the segmentation of the organ cells on MRI scans. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art solutions. In this repository, we fine-tune transformers based pre-trained computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging.
+Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision that empowers healthcare professionals with advanced tools for precise disease diagnosis and optimisation of treatment strategies. This project focuses on semantic segmentation in medical imaging, automating the segmentation of the organ cells on MRI scans. In recent years, there have been remarkable advancements in image segmentation, with Transformers based architectures or hybrid architectures (integrating Transformer blocks and convolutional blocks) emerging as State-of-the-Art solutions, surpassing traditional model such as ConvNets. However, ConvNeXts, a pure ConvNet model, demonstrated competitive performance with Transformers across multiple computer vision benchmarks in terms of accuracy and scalability. In this repository, we fine-tune computer vision models of different architectures such as Segformers, DPT, and UPerNet (ConvNeXt backbone) to achieve advanced semantic segmentation performance in medical imaging.
 
 ## Dataset Description
 The dataset is sourced from "UW-Madison GI Tract Image Segmentation"Kaggle competition. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview). The images in this dataset are provided in the form of 16-bit grayscale PNG format. and the ground-truth segmentation annotations are provided using Run-Length Encoding (RLE) in a CSV file. 
@@ -45,14 +45,14 @@ tail -f logs/train_upertnet_small.log
 ## Evaluation Results and Performance Comparison
 In this project, we evaluate different models with varying parameter sizes to compare their performance in semantic segmentation tasks. While UperNet exhibits the best dice coefficient after fine-tuning, it's intriguing to observe that increasing the parameters of UperNet doesn not yield a proportionally significant performance improvement compared to SegFormer
 
-|Model|Type|Dice coefficient|Parameters|
+|Baseline Model|Type|Dice coefficient|Parameters|
 |---|---|---|---|
 |[nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512)|SegFormer|0.8813|3.7M|
 |[nvidia/segformer-b4-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b4-finetuned-ade-512-512)|SegFormer|0.9196|64M|
 |[nvidia/segformer-b5-finetuned-ade-640-640](https://huggingface.co/nvidia/segformer-b5-finetuned-ade-640-640)|SegFormer|0.9297|84M|
-|[openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small)|UperNet (ConvNetXt backbone)|0.9459|82M|
-|[openmmlab/upernet-convnext-base](https://huggingface.co/openmmlab/upernet-convnext-base)|UperNet (ConvNetXt backbone)|0.9470|122M|
-|[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
+|[openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small)|UperNet (ConvNeXt backbone)|0.9459|82M|
+|[openmmlab/upernet-convnext-base](https://huggingface.co/openmmlab/upernet-convnext-base)|UperNet (ConvNeXt backbone)|0.9470|122M|
+|[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNeXt backbone)|**0.9494**|234M|
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
 ## Displaying Inference Examples
