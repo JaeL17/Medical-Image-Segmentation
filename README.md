@@ -12,7 +12,7 @@ In 2019, an estimated 5 million people were diagnosed with a cancer of the gastr
 4. **visualisation.ipynb**: Explore this Jupyter Notebook for code related to displaying sample images and inference resylts of the segmentation model.
 
 ## Data Pre-processing and Training Data Augmentation
-During the training phase, the we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
+During the training phase, we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
 * Image resizing to 288x288 pixels.
 * Random flipping (both horizontal and vertical).
 * Random adjustments to brightness and contrast.
@@ -55,6 +55,6 @@ In this project, we evaluate different model with varying parameter sizes to com
 |[openmmlab/upernet-convnext-large](https://huggingface.co/openmmlab/upernet-convnext-large)|UperNet (ConvNetXt backbone)|**0.9494**|234M|
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
-## Displaying Results
+## Displaying Inference Examples
 ![ms_image_v1](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/5541e4f2-bbf6-451e-96b7-f7174a8f6423)
 ![ms_image_v2](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/dd633922-4a31-4eb0-a0bb-41f43267c6b0)
