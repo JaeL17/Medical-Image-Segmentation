@@ -1,11 +1,9 @@
 # Medical-Image-Segmentation
 ## Overview
-Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision that empowers healthcare professionals with advanced tools for precise disease diagnosis and optimisation of treatment strategies. This project focuses on semantic segmentation in medical imaging, automating the segmentation of the stomach and intestines on MRI scans. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art solutions. In this repository, we fine-tune transformers based pre-trained computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging.
+Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision that empowers healthcare professionals with advanced tools for precise disease diagnosis and optimisation of treatment strategies. This project focuses on semantic segmentation in medical imaging, automating the segmentation of the organ cells on MRI scans. Since 2021, there have been significant advancements in image segmentation, with transformer based architectures or hybrid architectures (combining transformer blocks and convolutional blocks) emerging as State-of-the-Art solutions. In this repository, we fine-tune transformers based pre-trained computer vision models such as Segformers, DPT, BEiT, and UPerNet to achieve advanced semantic segmentation performance in medical imaging.
 
 ## Dataset Description
-
-
-In 2019, an estimated 5 million people were diagnosed with a cancer of the gastro-intestinal tract worldwide. Of these patients, about half are eligible for radiation therapy, usually delivered over 10-15 minutes a day for 1-6 weeks. Radiation oncologists try to deliver high doses of radiation using X-ray beams pointed to tumors while avoiding the stomach and intestines. With newer technology such as integrated magnetic resonance imaging and linear accelerator systems, also known as MR-Linacs, oncologists are able to visualize the daily position of the tumor and intestines, which can vary day to day. In these scans, radiation oncologists must manually outline the position of the stomach and intestines in order to adjust the direction of the x-ray beams to increase the dose delivery to the tumor and avoid the stomach and intestines. This is a time-consuming and labor intensive process that can prolong treatments from 15 minutes a day to an hour a day, which can be difficult for patients to tolerate—unless deep learning could help automate the segmentation process. A method to segment the stomach and intestines would make treatments much faster and would allow more patients to get more effective treatment. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview)
+The dataset is sourced from "UW-Madison GI Tract Image Segmentation"Kaggle competition. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview). The images in this dataset are provided in the form of 16-bit grayscale PNG format. and the ground-truth segmentation annotations are provided using Run-Length Encoding (RLE) in a CSV file. 
 
 ## Contents
 1. **utils.py**: Contains code for loading training and validation dataset, as well as pre-processing the data and data augmentation on training dataset.
@@ -14,12 +12,12 @@ In 2019, an estimated 5 million people were diagnosed with a cancer of the gastr
 4. **visualisation.ipynb**: Explore this Jupyter Notebook for code related to displaying sample images and inference resylts of the segmentation model.
 
 ## Data Pre-processing and Training Data Augmentation
-During the training phase, we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
-* Image resizing to 288x288 pixels.
-* Random flipping (both horizontal and vertical).
-* Random adjustments to brightness and contrast.
-* Coarser dropout for regularisation.
-* Random scaling, shifting, and rotation.
+The dataset is divided into training and validaiton sets with 8:2 ratio. During the training phase, we adopt multiple data augmentation strategies to enhance the generalisation capabilities of models. The key pre-processing and augmentation techniques include:
+1. **Image Resizing**: All images are resized to a resolution of 288x288 pixels to ensure uniformity.
+2. **Random Flipping**: Both horizontal and vertical fillping are applied randomly to expose the model to variations in orientation.
+3. **Brightness and Contrast Adjustments**: Random adjustments to brightness and contrast are applied to simulate diverse lighting conditions.
+4. **Coarser Dropout for Regularisation**: Coarser dropout is applied to introduce regularisation during training, preventing overfitting and improving the model's ability to generalise to unseen data.
+5. **Random Scaling, Shifting, and Rotation**: Random scaling, shifting, and rotation are applied to improve the model's robustness against spatial transformations.
 
 ## Running the trainer code
 - Shell script
