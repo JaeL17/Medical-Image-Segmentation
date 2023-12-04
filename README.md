@@ -37,7 +37,7 @@ CUDA_VISIBLE_DEVICES=2 python trainer.py \
     --weight_decay 1e-4 \
     --optimizer "AdamW"\
     --scheduler_name "MultiStepLR"\
-    --epochs 6 \
+    --epochs 100 \
     --lr 2e-4 >> ./logs/train_upertnet_small.log &
 ```
 
@@ -47,8 +47,11 @@ tail -f logs/train_upertnet_small.log
 ```
 
 ## Evaluation Results and Performance Comparison
-In this project, we evaluate different models with varying parameter sizes to compare their performance in semantic segmentation tasks. While UperNet exhibits the best dice coefficient after fine-tuning, it's intriguing to observe that increasing the parameters of UperNet doesn not yield a proportionally significant performance improvement compared to SegFormer
-
+In this project, we compare the performance different models with varying parameter sizes for semantic segmentation based on their Dice coefficient scores. The Dice coefficient is a measure of similarity between two samples, with a value of 1 indicating perfect overlap.
+* **SegFormer**: The encoder part of SegFormer can be scaled from b0 to b5 by adjusting the number of layers or the dimensions of encoder blocks. The SegFormer models show a clear trend of increasing Dice coefficients as the model complexity (parameter size) increases, with scoring ranging from 0.8813 for the b0 variant to 0.9297 for b5. 
+* **UperNet (ConvNeXt backbone)**: Among the evaluated models, the UperNet (ConvNeXt backbone) large stands out with the highest Dice coefficient of 0.9494. Interestingly, increasing the parameters of UperNet does not yield a proportionally significant performance improvement compared to SegFormer models.
+* **DPT**: Despite its significantly larger parameter size, the DPT large model achieves a Dice coefficient of 0.9420, slightly below the UperNet (ConvNeXt backbone) small model.
+  
 |Baseline Model|Type|Dice coefficient|Parameters|
 |---|---|---|---|
 |[nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512)|SegFormer|0.8813|3.7M|
@@ -60,5 +63,7 @@ In this project, we evaluate different models with varying parameter sizes to co
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
 ## Displaying Inference Examples
+The images below show inference examples of UperNet (ConvNeXt backbone) large, which is the best-performing model.
+
 ![ms_image_v1](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/5541e4f2-bbf6-451e-96b7-f7174a8f6423)
 ![ms_image_v2](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/dd633922-4a31-4eb0-a0bb-41f43267c6b0)
