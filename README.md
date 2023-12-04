@@ -3,7 +3,12 @@
 Welcome to the repository for Medical Image Segmentation, a crucial task in the field of computer vision that empowers healthcare professionals with advanced tools for precise disease diagnosis and optimisation of treatment strategies. This project focuses on semantic segmentation in medical imaging, automating the segmentation of the organ cells on MRI scans. In recent years, there have been remarkable advancements in image segmentation, with Transformers based architectures or hybrid architectures (integrating Transformer blocks and convolutional blocks) emerging as State-of-the-Art solutions, overtaking ConvNets as the favoured choice for backbones. However, ConvNeXts, a pure ConvNet model, demonstrated competitive performance with Transformers across multiple computer vision benchmarks in terms of accuracy and scalability. In this repository, we fine-tune computer vision models of different architectures such as Segformers, DPT, and UPerNet (ConvNeXt backbone) to achieve advanced semantic segmentation performance in medical imaging.
 
 ## Dataset Description
-The dataset is sourced from "UW-Madison GI Tract Image Segmentation"Kaggle competition. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview). The images in this dataset are provided in the form of 16-bit grayscale PNG format. and the ground-truth segmentation annotations are provided using Run-Length Encoding (RLE) in a CSV file. 
+The dataset is sourced from "UW-Madison GI Tract Image Segmentation" Kaggle competition. You can access the dataset here: [dataset](https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/overview). The images in this dataset are provided in the form of 16-bit grayscale PNG format. and the ground-truth segmentation annotations are provided using Run-Length Encoding (RLE) in a CSV file. The dataset consists of 3 classes: Stomach, Small Bowel, and Large Bowel. In total, there are 16,590 images with annotations for the specified classes.
+
+### Class Distribution
+* **Stomach**: 8,627 images (52% of the dataset) have annotations for this class.
+* **Small Bowel**: 11,201 images (67.5% of the dataset) have annotations for this class.
+* **Large Bowel**: 14,085 images (84.9% of the dataset) have annotations for this class.  
 
 ## Contents
 1. **utils.py**: Contains code for loading training and validation dataset, as well as pre-processing the data and data augmentation on training dataset.
