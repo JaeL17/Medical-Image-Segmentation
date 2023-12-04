@@ -10,7 +10,7 @@ CUDA_VISIBLE_DEVICES=2 python trainer.py \
     --weight_decay 1e-4 \
     --optimizer "AdamW"\
     --scheduler_name "MultiStepLR"\
-    --epochs 6 \
+    --epochs 100 \
     --lr 2e-4 1>> $LOG_PATH 2>&1 &
 
 echo "--------------------------------------------------" >> $LOG_PATH
