@@ -56,4 +56,5 @@ In this project, we evaluate different model with varying parameter sizes to com
 |[Intel/dpt-large](https://huggingface.co/Intel/dpt-large)|DPT|0.9420|343M|
 
 ## Displaying Results
-![ms_image](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/aaf133e0-7613-423d-9463-a62f79be2629)
+![ms_image_v1](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/5541e4f2-bbf6-451e-96b7-f7174a8f6423)
+![ms_image_v2](https://github.com/JaeL17/Medical-Image-Segmentation/assets/73643391/dd633922-4a31-4eb0-a0bb-41f43267c6b0)
